@@ -10,6 +10,9 @@
  */
 
 function expresionBalanceada(text) {
+    
+
+
 }
 
 expresionBalanceada("{([])}");
