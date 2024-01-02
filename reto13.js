@@ -8,6 +8,7 @@
  */
 
 function isPalindromo(texto) {
+    texto = texto.replace(' ','');
     let data = texto.split('');
     let data2 = data.reverse();
     console.log(data2);
