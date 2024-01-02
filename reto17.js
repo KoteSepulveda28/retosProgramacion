@@ -7,13 +7,12 @@
 
 function convertirPrimeraMayuscula(texto){
     let dataTexto = texto.split(' ');
-    let textoUpercase = dataTexto.map(function(x) {
-        console.log(x);
-        return x.charAt(0).toUppercase() + x.slice(1);
+    let textoFinal = '';
+    dataTexto.map(function(x) {
+        textoFinal += x.charAt().toUpperCase() + x.slice(1) + ' ';
     })
 
-
-    console.log(textoUpercase);
+    console.log(textoFinal);
 
 }
 

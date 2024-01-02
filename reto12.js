@@ -16,7 +16,6 @@ function expresionesEquilibradas(string1, string2) {
 
     console.log(filtro1);
     console.log(filtro2);
-    
 }
 
 expresionesEquilibradas( 'ABCDEFG', 'DEFGHI' )
