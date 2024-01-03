@@ -12,3 +12,39 @@
  * - Debemos controlar que las monedas enviadas estén dentro de las soportadas.
  */
 
+
+const products = [
+    {
+        "id" : 1,
+        "name" : "Kukies",
+        "price" : 550
+    },
+    {
+        "id" : 2,
+        "name" : "Coke",
+        "price" : 800
+    },
+    {
+        "id" : 3,
+        "name" : "Papas fritas",
+        "price" : 700
+    }
+]
+
+function comprarProducto(dinero, producto){
+    let productoSelected = products.filter((item) => item.id === producto)
+    if(productoSelected.length > 0){
+        const {id, name, price} = productoSelected[0];
+        const sumaDinero = dinero.reduce((accumulator, currentValue) => accumulator + currentValue);
+
+        // if(sumaDinero :)
+
+    }
+    else{
+        console.log('Product not found');
+    }
+}
+
+let monedas = [200,200,200];
+let idProducto = 3;
+comprarProducto(monedas,idProducto);
