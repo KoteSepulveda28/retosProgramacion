@@ -31,20 +31,52 @@ const products = [
     }
 ]
 
+const coinsSupport = [200,100,50,10,5];
+
 function comprarProducto(dinero, producto){
+
+    let validate = 0;
+
+    dinero.forEach(element => {
+        let value = coinsSupport.filter((filtro) => filtro == element); 
+        validate = value.length > 0 ? validate + 0 : validate + 1;
+    });
+
+    if(validate > 0){
+        return 'Monedas no soportadas';
+    }
+
     let productoSelected = products.filter((item) => item.id === producto)
     if(productoSelected.length > 0){
         const {id, name, price} = productoSelected[0];
         const sumaDinero = dinero.reduce((accumulator, currentValue) => accumulator + currentValue);
-
-        // if(sumaDinero :)
-
+        if(sumaDinero < price){
+            return 'Insert more monedas';
+        }
+        
+        let vuelto = sumaDinero - price;
+        let arregloMonedasVuelto = generarVuelto(vuelto, coinsSupport);
+        console.log(arregloMonedasVuelto);
+        return 'El producto seleccionado es: '+name;
     }
     else{
-        console.log('Product not found');
+        return 'Producto not found';
     }
 }
 
-let monedas = [200,200,200];
-let idProducto = 3;
-comprarProducto(monedas,idProducto);
+
+function generarVuelto(valor, monedasSoportadas) {
+   
+    let vuelto = [];
+    monedasSoportadas.forEach(element => {
+        while (valor >= element) {
+            vuelto.push(element);
+            valor -= element;
+        }
+    });
+
+    return vuelto;
+}
+let monedas = [200,200,200,200,200];
+let idProducto = 1;
+console.log(comprarProducto(monedas,idProducto));
